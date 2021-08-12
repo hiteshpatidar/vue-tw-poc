@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <img
-      alt="Vue logo"
-      height="52px"
-      width="260px"
-      src="./assets/TestingWhiz-logo.png"
-    />
-    <HelloWorld msg="Welcome to Your TestingWhiz App" />
+    <javascript-editor></javascript-editor>
+    <!-- <monaco-editor-demo></monaco-editor-demo> -->
+    <!-- <new-editor></new-editor> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+// import NewEditor from "./components/NewEditor.vue";
+// import MonacoEditorDemo from "./components/MonacoEditorDemo.vue";
+import JavascriptEditor from "./components/JavascriptEditor.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    // NewEditor
+    // MonacoEditorDemo
+    JavascriptEditor
   }
 };
 </script>
