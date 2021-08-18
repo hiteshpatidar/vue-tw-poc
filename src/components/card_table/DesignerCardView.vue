@@ -1,6 +1,28 @@
 <template>
   <div class="bg-gray-200 rounded-lg px-3 py-3 column-width rounded mr-4">
-    <draggable
+    {{ commandDataCases.steps[0] }}
+    <b-card
+      class="text-center mt-3"
+      v-for="step in commandDataCases.steps"
+      :key="step.id"
+      ref="card-drag"
+    >
+      <b-row>
+        <b-col sm="1"><b-form-checkbox> </b-form-checkbox></b-col>
+        <b-col sm="1">
+          <div class="handle">
+            <b-icon font-scale="2" icon="grip-horizontal" />
+          </div>
+        </b-col>
+        <b-col sm="2">{{ step.operationName }}</b-col>
+        <b-col sm="2">{{ step.actionName }}</b-col>
+        <b-col sm="2">{{ step.value }}</b-col>
+        <b-col sm="2">{{ step.description }}</b-col>
+
+        <b-col sm="2">{{ step.screenshot }}</b-col>
+      </b-row>
+    </b-card>
+    <!-- <draggable
       :class="{ [`cursor-grabbing`]: dragging === true }"
       v-model="list"
       group="Group"
@@ -18,7 +40,6 @@
         ref="card-drag"
       >
         <command-card :item="item" @toggle="toggle"></command-card>
-        <!-- {{ item.persons.length }} -->
         <b-collapse
           v-model="item.cardVisible"
           :class="addTargetClass(item.id)"
@@ -37,35 +58,25 @@
             <div v-for="person in item.persons" :key="person.id">
               <command-card :item="person" @toggle="toggle"></command-card>
             </div>
-
-            <!-- <draggable
-            :class="{ [`cursor-grabbing`]: dragging === true }"
-            v-model="item.persons"
-            group="Group"
-            @start="dragStart"
-            @end="dragEnd"
-            @change="dragChanged"
-            handle=".handle"
-            :animation="200"
-          >
-            <b-row> Hello </b-row>
-          </draggable> -->
           </draggable>
         </b-collapse>
       </b-card>
-    </draggable>
+    </draggable> -->
   </div>
 </template>
 
 <script>
-import draggable from "vuedraggable";
-import CommandCard from "./CommandCard.vue";
+// import draggable from "vuedraggable";
+// import CommandCard from "./CommandCard.vue";
+import TS_Check from "../../assets/testsuitelist/TS_Check.json";
 export default {
   name: "DesignerCardView",
-  components: { draggable, CommandCard },
+  // components: { draggable, CommandCard },
   data() {
     return {
       opened: [],
+      commandData: TS_Check,
+      commandDataCases: TS_Check.Cases[0],
       list: [
         {
           id: 1,

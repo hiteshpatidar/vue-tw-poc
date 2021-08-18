@@ -1,0 +1,61 @@
+{
+    "metadata": {
+        "updateDate": "Friday 10 Jan 2020 16:37 IST",
+        "priorities": "Medium",
+        "updatedBy": "rnshelat",
+        "createdBy": "rpprajapati",
+        "lastRunStatus": "PASS",
+        "description": null,
+        "lastRunDate": "Monday 22 Mar 2021 17:10 IST",
+        "TestReference": null,
+        "SVNRevisionID": "e0843298d90",
+        "createDate": "Tuesday 31 Jul 2018 18:28 IST"
+    },
+    "name": "TS_CallMethod",
+    "skip": false,
+    "Cases": [
+        {
+            "metadata": {
+                "updateDate": "Friday 23 Aug 2019 15:52 IST",
+                "updatedBy": "rnshelat",
+                "lastRunStatus": "PASS",
+                "description": null,
+                "lastRunDate": "Friday 07 Aug 2020 15:00 IST",
+                "SVNRevisionID": "12608",
+                "priorities": "Medium",
+                "TestSuite": null,
+                "createdBy": "rpprajapati",
+                "TestCase": null,
+                "recoveryMethod": null,
+                "TestReference": null,
+                "forked": null,
+                "createDate": "Tuesday 31 Jul 2018 18:28 IST"
+            },
+            "noOfSteps": 1,
+            "name": "TC_CallMethod",
+            "placeHolderFile": null,
+            "skip": false,
+            "steps": [
+                {
+                    "callMethodFlag": false,
+                    "metadata": {
+                        "placeHolderKey": null,
+                        "placeHolderObjectKey": null,
+                        "validation": {},
+                        "breakpoint": null
+                    },
+                    "description": "",
+                    "operationName": "Call Method",
+                    "skip": false,
+                    "screenshot": false,
+                    "value": "callMethodName:::TestMethod!!!callmethodParameters:::{ClickObject=.//input[@id='form_OK'], InputValue=TestingWhiz, InputObjectPart=input}!!!file:::null",
+                    "actionName": "",
+                    "operationLabel": 294,
+                    "actionLabel": null,
+                    "serialNo": 0,
+                    "object": ""
+                }
+            ]
+        }
+    ]
+}
