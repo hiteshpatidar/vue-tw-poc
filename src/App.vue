@@ -1,22 +1,30 @@
 <template>
   <div id="app">
-    <img
-      alt="Vue logo"
-      height="52px"
-      width="260px"
-      src="./assets/TestingWhiz-logo.png"
-    />
-    <HelloWorld msg="Welcome to Your TestingWhiz App" />
+    <b-container>
+      <!-- <img
+        alt="Vue logo"
+        height="52px"
+        width="260px"
+        src="./assets/TestingWhiz-logo.png"
+      /> -->
+      <from-wizard></from-wizard>
+      <!-- <multiple-steps-form></multiple-steps-form> -->
+      <!-- <HelloWorld msg="Welcome to Your TestingWhiz App" /> -->
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import FromWizard from "./components/form-wizard/FromWizard.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
+// import MultipleStepsForm from "./components/MultipleStepsForm.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    FromWizard
+    // HelloWorld,
+    // MultipleStepsForm
   }
 };
 </script>

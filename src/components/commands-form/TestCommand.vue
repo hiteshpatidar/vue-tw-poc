@@ -1,31 +1,69 @@
 <template>
-  <div class="hello">
-    <!-- <h1>{{ msg }}</h1> -->
-    <b-tabs content-class="mt-3" lazy>
-      <b-tab title="Menu"><tab-first></tab-first></b-tab>
-      <b-tab title="Uploader"><tab-second></tab-second></b-tab>
-      <b-tab title="Modal"><modal></modal></b-tab>
-    </b-tabs>
-    <!-- {{ items }} -->
+  <div role="group">
+    isDirty: {{ isDirty }} <br />
+    nameState: {{ nameState }} <br />
+    commandState: {{ commandState }}
+    <b-form inline>
+      <b-form-select
+        :state="commandState"
+        v-model="selected"
+        :options="options"
+      ></b-form-select>
+    </b-form>
+    <label for="input-live">Name:</label>
+    <b-form-input
+      id="input-live"
+      v-model="name"
+      :state="nameState"
+      aria-describedby="input-live-help input-live-feedback"
+      placeholder="Enter your name"
+      trim
+    ></b-form-input>
+
+    <!-- This will only be shown if the preceding input has an invalid state -->
+    <b-form-invalid-feedback id="input-live-feedback">
+      Name is required
+    </b-form-invalid-feedback>
+
+    <!-- This is a form text block (formerly known as help block) -->
+    <b-form-text id="input-live-help">Your full name.</b-form-text>
   </div>
 </template>
 
 <script>
-import Modal from "./Modal.vue";
-import TabFirst from "./TabFirst.vue";
-import TabSecond from "./TabSecond.vue";
 export default {
-  components: { TabFirst, TabSecond, Modal },
-  name: "HelloWorld",
+  name: "TestCommand",
   props: {
-    msg: String
+    prevent: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    isDirty() {
+      return !(this.nameState && this.commandState);
+    },
+    nameState() {
+      return this.name !== "";
+    },
+    commandState() {
+      return this.selected !== null;
+    }
+  },
+  watch: {
+    isDirty(value) {
+      this.$emit("update:prevent", value);
+    }
+  },
+  mounted() {
+    this.$emit("update:prevent", this.isDirty);
   },
   data() {
     return {
-      file1: null,
-      file2: null,
-      selectedItem: { isActive: false, text: "TS_Click", value: "TS_Click" },
-      items: [
+      name: "",
+      selected: null,
+      options: [
+        { value: null, text: "Please select command" },
         { isActive: false, text: "TS_Click", value: "TS_Click" },
         { isActive: false, text: "TS_Compare", value: "TS_Compare" },
         { isActive: false, text: "TS_CallMethod", value: "TS_CallMethod" },
@@ -57,48 +95,8 @@ export default {
         { isActive: false, text: "TS_Check", value: "" }
       ]
     };
-  },
-  watch: {
-    file1(value) {
-      console.log(value);
-    }
-  },
-  methods: {
-    clickItem(item) {
-      // alert(item);
-      // eslint-disable-next-line no-debugger
-      debugger;
-      // this.items = this.items.map(obj => ({
-      //   ...obj,
-      //   isActive: false
-      // }));
-
-      this.selectedItem.isActive = false;
-      item.isActive = true;
-      this.selectedItem = item;
-    }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.my-class /deep/ .dropdown-menu {
-  max-height: 200px;
-  overflow-y: auto;
-}
-</style>
+<style></style>
